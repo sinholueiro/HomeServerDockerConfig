@@ -1,0 +1,20 @@
+version: "2.1"
+services:
+    librespeed:
+      image: linuxserver/librespeed
+      container_name: librespeed
+      environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=Europe/Madrid
+        - PASSWORD=X
+        - DB_TYPE=sqlite
+        - DB_NAME=librespeed
+      ports:
+        - 81:80
+        - 444:443
+      volumes:
+        - config:/config
+      restart: unless-stopped
+volumes:
+  config:
