@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  check-mk:
+    image: checkmk/check-mk-raw:2.0.0-latest
+  ports:
+    - 5000:5000
+  volumes:
+    - data:/omd/sites
+    - /etc/localtime:/etc/localtime:ro
+  restart: unless-stopped
+volumes:
+  data:
